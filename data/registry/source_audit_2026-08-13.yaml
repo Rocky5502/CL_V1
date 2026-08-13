@@ -1,0 +1,11 @@
+audit_date: 2026-08-13
+policy: "Do not vendor third-party raw corpora into GitHub. Snapshot immutable upstream revisions locally and write SHA-256 manifests."
+sources:
+  - {id: bbq, canonical: "https://github.com/nyu-mll/BBQ", verified_license_at_audit: "CC-BY-4.0"}
+  - {id: crows_pairs, canonical: "https://huggingface.co/datasets/nyu-mll/crows_pairs"}
+  - {id: stereoset, canonical: "https://huggingface.co/datasets/McGill-NLP/stereoset", verified_license_at_audit: "CC-BY-SA-4.0"}
+  - {id: holistic_bias, canonical: "https://huggingface.co/datasets/fairnlp/holistic-bias", verified_license_at_audit: "CC-BY-SA-4.0"}
+  - {id: belebele, canonical: "https://huggingface.co/datasets/facebook/belebele", verified_license_at_audit: "CC-BY-SA-4.0"}
+  - id: xnli
+    canonical: "https://huggingface.co/datasets/facebook/xnli"
+    notes: "Registered subset covers supported core languages only; Nepali and Bengali are not present in XNLI."

@@ -1,0 +1,73 @@
+# Candidate panel. Exact revisions are frozen by scripts/freeze_models.py before the main run.
+# API IDs are environment-overridable because provider aliases can change.
+# `loader` is explicit so multimodal/text-generation architectures are not silently misloaded.
+models:
+  - id: llama31_8b
+    provider: hf
+    loader: causal_lm
+    model_id: meta-llama/Llama-3.1-8B-Instruct
+    revision: null
+    precision: bf16
+    group: open
+    enabled: true
+    gated: true
+
+  - id: qwen3_14b
+    provider: hf
+    loader: causal_lm
+    model_id: Qwen/Qwen3-14B
+    revision: null
+    precision: bf16
+    group: open
+    enabled: true
+    gated: false
+    chat_template_kwargs:
+      enable_thinking: false
+
+  - id: gemma3_12b
+    provider: hf
+    loader: image_text_to_text
+    model_id: google/gemma-3-12b-it
+    revision: null
+    precision: bf16
+    group: open
+    enabled: true
+    gated: true
+
+  - id: ministral3_14b
+    provider: hf
+    loader: image_text_to_text
+    model_id: mistralai/Ministral-3-14B-Instruct-2512-BF16
+    revision: null
+    precision: bf16
+    group: open
+    enabled: true
+    gated: true
+
+  - id: aya_expanse_8b
+    provider: hf
+    loader: causal_lm
+    model_id: CohereLabs/aya-expanse-8b
+    revision: null
+    precision: bf16
+    group: open
+    enabled: true
+    gated: true
+
+  - id: openai_frontier
+    provider: openai
+    model_id_env: OPENAI_MODEL
+    group: api
+    enabled: false
+
+  - id: anthropic_frontier
+    provider: anthropic
+    model_id_env: ANTHROPIC_MODEL
+    group: api
+    enabled: false
+
+  - id: gemini_frontier
+    provider: gemini
+    model_id_env: GEMINI_MODEL
+    group: api
+    enabled: false
