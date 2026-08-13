@@ -1,0 +1,19 @@
+languages:
+  en: {name: English, script: Latin, role: core, belebele_code: eng_Latn}
+  zh: {name: Mandarin Chinese, script: Han, role: core, belebele_code: zho_Hans}
+  es: {name: Spanish, script: Latin, role: core, belebele_code: spa_Latn}
+  ar: {name: Modern Standard Arabic, script: Arabic, role: core, belebele_code: arb_Arab}
+  hi: {name: Hindi, script: Devanagari, role: core, belebele_code: hin_Deva}
+  ne: {name: Nepali, script: Devanagari, role: core, belebele_code: npi_Deva}
+  bn: {name: Bengali, script: Bengali, role: core, belebele_code: ben_Beng}
+  sw: {name: Swahili, script: Latin, role: core, belebele_code: swh_Latn}
+
+resource_proxies:
+  - tokenizer_fertility
+  - bytes_per_token
+  - upstream_parallel_benchmark_coverage
+  - benchmark_annotation_availability
+  - public_corpus_proxy
+
+note: >-
+  Do not label languages high/low-resource by intuition in analysis. Compute and report the proxies above.

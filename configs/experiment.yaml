@@ -1,0 +1,69 @@
+project: epifair
+protocol_version: "0.1-pre-registration"
+seed: 5502
+
+benchmark:
+  target_seed_families: 300
+  pilot_seed_families: 60
+  domains: [hiring, education, healthcare, finance, public_services, everyday_assistance]
+  information_states: [underspecified, sufficient, misleading]
+  paraphrases_per_state: 2
+  cue_variants_per_family: 2
+  languages: [en, zh, es, ar, hi, ne, bn, sw]
+  require_human_translation_validation: true
+  require_social_cue_review: true
+
+tier_a:
+  temperature: 0.0
+  top_p: 1.0
+  samples_per_prompt: 1
+  max_new_tokens: 512
+
+tier_b:
+  seed_families: 120
+  temperature: 0.7
+  top_p: 0.95
+  open_samples_per_prompt: 5
+  api_samples_per_prompt: 3
+  max_new_tokens: 512
+
+uncertainty:
+  estimators:
+    - mean_token_nll
+    - sequence_logprob
+    - predictive_entropy
+    - semantic_entropy
+    - sample_consistency
+    - verbal_confidence
+  semantic_similarity_model: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+  verbal_confidence_is_secondary: true
+
+primary_actions: [answer, clarify, check, abstain, refuse, assume]
+
+primary_metrics:
+  - accuracy
+  - ece
+  - brier
+  - wrong_overconfidence_rate
+  - clarification_opportunity_gap
+  - evidence_access_gap
+  - unsupported_assumption_rate
+  - stereotype_aligned_unsupported_assumption_rate
+  - abstention_gap
+  - refusal_gap
+
+analysis:
+  alpha: 0.05
+  primary_multiplicity: holm
+  exploratory_multiplicity: benjamini_hochberg
+  bootstrap_replicates: 2000
+  cluster_bootstrap_by: scenario_family_id
+  minimum_action_classifier_macro_f1: 0.90
+  minimum_action_classifier_per_class_f1: 0.80
+
+integrity:
+  append_only_raw_outputs: true
+  hash_every_raw_record: true
+  forbid_result_placeholders_as_numbers: true
+  preserve_null_results: true
+  quantized_primary_calibration: false

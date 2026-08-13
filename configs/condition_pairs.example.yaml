@@ -1,0 +1,6 @@
+status: smoke_fixture_only
+review_required_before_main_run: true
+dimensions:
+  demo_dimension:
+    pair_a: {label: variant_a, phrase: "Person A"}
+    pair_b: {label: variant_b, phrase: "Person B"}

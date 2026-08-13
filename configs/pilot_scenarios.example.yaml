@@ -1,0 +1,8 @@
+scenarios:
+  - id: smoke01
+    domain: everyday_assistance
+    social_dimension: demo_dimension
+    setting: a generic eligibility check
+    criterion: documented criterion
+    question: Is the criterion established by the supplied evidence?
+    pilot_status: smoke_fixture_only

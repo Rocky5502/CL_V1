@@ -1,0 +1,58 @@
+datasets:
+  bbq:
+    purpose: ambiguity_and_social_bias_anchor
+    source_type: git
+    url: https://github.com/nyu-mll/BBQ.git
+    license: CC-BY-4.0
+    redistribute_in_this_repo: false
+    notes: "Use original NYU repository as canonical source; HF mirrors are convenience only."
+
+  crows_pairs:
+    purpose: stereotype_minimal_pairs_anchor
+    source_type: huggingface
+    repo_id: nyu-mll/crows_pairs
+    repo_type: dataset
+    license: unknown_verify_at_freeze
+    redistribute_in_this_repo: false
+
+  stereoset:
+    purpose: stereotype_preference_anchor
+    source_type: huggingface
+    repo_id: McGill-NLP/stereoset
+    repo_type: dataset
+    license: CC-BY-SA-4.0
+    redistribute_in_this_repo: false
+
+  holistic_bias:
+    purpose: descriptor_coverage_and_social_axis_design
+    source_type: huggingface
+    repo_id: fairnlp/holistic-bias
+    repo_type: dataset
+    license: CC-BY-SA-4.0
+    redistribute_in_this_repo: false
+    notes: "HF release states it is a re-release; preserve original paper/source metadata."
+
+  belebele:
+    purpose: parallel_multilingual_comprehension_and_calibration_anchor
+    source_type: huggingface
+    repo_id: facebook/belebele
+    repo_type: dataset
+    license: CC-BY-SA-4.0
+    redistribute_in_this_repo: false
+
+  xnli:
+    purpose: parallel_multilingual_classification_calibration_anchor
+    source_type: huggingface
+    repo_id: facebook/xnli
+    repo_type: dataset
+    license: verify_upstream
+    redistribute_in_this_repo: false
+    snapshot_allow_patterns:
+      - README.md
+      - en/*
+      - ar/*
+      - es/*
+      - hi/*
+      - sw/*
+      - zh/*
+    notes: "XNLI lacks Nepali/Bengali; use only supported languages and do not force false coverage."
